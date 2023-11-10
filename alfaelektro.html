@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontaktskjema - alfaelektrosol.no</title>
+    <meta name="description" content="Kalkuler pris per panel - alfaelektrosol.no">
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        
+        }
+
+        .container {
+            display: flex;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .contact-form {
+            flex: 1;
+            background-color: #fff;
+            padding: 20px;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-form h2 {
+            color: #333;
+        }
+
+        .contact-form form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contact-form .form-group {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            
+        }
+
+        .contact-form .form-group input {
+            width: 48%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .contact-form .form-group input[type="text"],
+        .contact-form .form-group input[type="email"],
+        .contact-form .form-group input[type="tel"] {
+            width: 100%;
+        }
+
+        .contact-form .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 20px;
+        }
+
+        .contact-form button {
+            background-color: #FF8500;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            padding: 20px;
+            margin-top: 10px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        .contact-form button:hover{
+            transform: translateY(-5px);
+        }
+        .big-button {
+            font-size: 20px;
+            padding: auto;
+        }
+        .thank-you-content {
+            text-align:center ;
+            border-radius: 4px;
+            padding: 40px;
+            margin-top:120px;
+            display: none;
+        }
+
+        .thank-you-content h2 {
+            font-size: 3rem; 
+            margin: 0; 
+        }
+        .thank-you-content .back-button {
+            display: inline-block;
+            text-align: center;
+            text-decoration: none;
+            background-color: #FF8500;
+            color: #fff;
+            padding: 20px 30px;
+            margin-top: 60px;
+            border: 2px solid transparent;
+            border-radius: 8px;
+            transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+            font-size: 20px;
+        }
+
+        .thank-you-content .back-button:hover {
+            transform: translateY(-5px);
+            background-color: transparent;
+            color: #FF8500;
+            border: 2px solid #FF8500;
+        }
+
+
+       
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="contact-form">
+             <form action="https://formsubmit.co/asbjorn.roed@alfael.no" method="POST" >
+                <!--Honeypot-->
+                <input type="text" name="_honey" style="display:none">
+                <div class="form-group">
+                    <input type="text" id="name" name="name" required placeholder="Fornavn">
+                    <input type="text" id="lastname" name="lastname" required placeholder="Etternavn">
+                </div>
+                <div class="form-group">
+                    <input type="email" id="email" name="email" required placeholder="Email">
+                    <input type="tel" id="phone" name="phone" required placeholder="Telefon">
+                </div>
+                <div class="form-group">
+                    <input type="text" id="address" name="address" required placeholder="Adresse">
+                </div>
+                <div class="form-group">
+                    <input type="text" id="zipcode" name="zipcode" required placeholder="Postnummer">
+                </div>
+                <div class="form-group">
+                    <input type="text" id="city" name="city" required placeholder="Sted">
+                </div>
+                <div class="form-group">
+                    <textarea id="message" name="message" rows="6" placeholder="Kommentar"></textarea>
+                </div>
+                <button type="submit" class="big-button">Bestill befaring</button>
+            </form>
+        </div>
+    </div>
+    <div class="thank-you-content">
+        <h2>Takk! Vi har mottatt din henvendelse 😊</h2>
+        <a href="https://www.alfaelektrosol.no/" class="back-button">Til forsiden</a>
+</div>
+    </div>
+    <script>
+       // JavaScript for takkemelding
+        const form = document.querySelector('form');
+        const thankYouContent = document.querySelector('.thank-you-content');
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault(); 
+            
+            setTimeout(function() {
+        
+                document.querySelector('.contact-form').style.display = 'none';
+                thankYouContent.style.display = 'block';
+
+            }, 0);
+        });
+
+    </script>
+</body>
+</html>
